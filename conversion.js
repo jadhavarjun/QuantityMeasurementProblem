@@ -2,6 +2,8 @@ class UnitOperations {
     //Length operation
     //meter convertion logic
     meterToInchConversion(value) {
+        if(value==null)
+        return null;
         return value * 39.3701;
     }
     meterToFeetConversion(value) {
@@ -16,9 +18,17 @@ class UnitOperations {
     }
     //feet convertion logic
     feetToMeterConvertion(value) {
+        if(value==null)
+        return null;
+        if(value<0)
+        return "Please enter Positive Value";
         return value / 3.281;
     }
     feetToInchConvertion(value) {
+        if(value==null)
+        return null;
+        if(value<0)
+        return "Please enter Positive Value";
         return value * 12;
     }
 
