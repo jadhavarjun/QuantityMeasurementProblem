@@ -2,33 +2,67 @@ class UnitOperations {
     //Length operation
     //meter convertion logic
     meterToInchConversion(value) {
-        if(value==null)
-        return null;
-        return value * 39.3701;
+        return new Promise((resolve, reject) => {
+            if (value > 0) {
+                let result = value * 39.3701;
+                resolve(result)
+            }
+            else {
+                reject("value can not be nagative");
+            }
+            if (value == null)
+                reject(null)
+        })
     }
     meterToFeetConversion(value) {
-        return value * 3.28084;
+        return new Promise((resolve, reject) => {
+            if (value > 0) {
+                let result = value * 3.2808;
+                resolve(result)
+            }
+            else {
+                reject("value can not be nagative");
+            }
+            if (value == null)
+                reject(null)
+        })
     }
-    //inch covertion logic
+    //Inch convertion logic
     inchToMeterConversion(value) {
-        return value / 100;
+        return new Promise((resolve, reject) => {
+            if (value > 0) {
+                let result = value / 100;
+                resolve(result)
+            }
+            else {
+                reject("value should not be nagative")
+            }
+        })
     }
     inchToFeetConversion(value) {
-        return value / 12;
+        return new Promise((resolve, reject) => {
+            if (value > 0) {
+                let result = value / 12;
+                resolve(result)
+            }
+            else {
+                reject("value should not be nagative")
+            }
+        })
     }
     //feet convertion logic
     feetToMeterConvertion(value) {
-        if(value==null)
-        return null;
-        if(value<0)
-        return "Please enter Positive Value";
+        if (value == null)
+            return null;
+        if (value < 0)
+            return "Please enter Positive Value";
         return value / 3.281;
     }
     feetToInchConvertion(value) {
-        if(value==null)
-        return null;
-        if(value<0)
-        return "Please enter Positive Value";
+        if (value == null)
+            return null;
+        if (value < 0)
+            return "Please enter Positive Value";
         return value * 12;
     }
 
@@ -36,32 +70,47 @@ class UnitOperations {
 
     //liter Conversion
     literToMilliliterConversion(value) {
+        if (value < 0)
+            return "Please Enter Positive Value";
         return value * 1000;
     }
     literToDeciliterConversion(value) {
+        if (value < 0)
+            return "Please Enter Positive Value";
         return value * 10;
     }
     //Milliliter conversion
     milliliterToLiterConversion(value) {
+        if (value < 0)
+            return "Please Enter Positive Value";
         return value / 1000;
     }
     milliliterToDeciliterConversion(value) {
+        if (value < 0)
+            return "Please Enter Positive Value";
         return value / 10;
     }
     //Deciliter conversion
     deciliterToLiterConversion(value) {
+        if (value < 0)
+            return "Please Enter Positive Value";
         return value / 10;
     }
     deciliterToMilliliterConversion(value) {
+        if (value < 0)
+            return "Please Enter Positive Value";
         return value * 100;
     }
 
     //For tempreture Operation
 
     //Celsius conversion
-    celsiusToFahrenheitConversion(value) {
-
-        return ((value * 9 / 5) + 32);
+    celsiusToFahrenheitConversion(value, callback) {
+		if(value < 0){
+			callback()
+		} else {
+			return ((value * 9 / 5) + 32);
+		}
     }
     celsiusToKelvinConversion(value) {
         return (value + 273.15);
